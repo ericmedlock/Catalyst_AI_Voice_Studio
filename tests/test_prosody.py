@@ -1,7 +1,8 @@
 """Tests for prosody planning modules."""
 
 import pytest
-from catalyst_ai_voice_studio.prosody_planner import RuleProsodyPlanner, MLProsodyPlanner, ProsodyMarker
+from catalyst_ai_voice_studio.prosody_planner import RuleProsodyPlanner, MLProsodyPlanner
+from catalyst_ai_voice_studio.prosody_planner.rules import ProsodyMarker
 
 
 class TestProsodyMarker:

@@ -69,7 +69,7 @@ class TestTextNormalizer:
         """Test punctuation normalization."""
         normalizer = TextNormalizer()
         
-        text = "Hello "world"... What's up???"
+        text = 'Hello "world"... What\'s up???'
         normalized = normalizer.normalize(text)
         
         # Should normalize quotes and excessive punctuation
