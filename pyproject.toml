@@ -1,0 +1,76 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "catalyst-ai-voice-studio"
+version = "0.1.0"
+description = "Professional-grade open-source voice synthesis platform"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "Catalyst AI Voice Studio Contributors"}
+]
+keywords = ["tts", "voice-synthesis", "ai", "speech"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+]
+dependencies = [
+    "torch>=2.0.0",
+    "torchaudio>=2.0.0",
+    "numpy>=1.21.0",
+    "librosa>=0.10.0",
+    "pydantic>=2.0.0",
+    "soundfile>=0.12.0",
+    "tqdm>=4.64.0",
+    "gruut>=2.2.3",
+    "phonemizer>=3.2.0",
+    "fastapi>=0.100.0",
+    "uvicorn[standard]>=0.23.0",
+    "jiwer>=3.0.0",
+    "openai-whisper>=20230918",
+]
+
+[project.optional-dependencies]
+gpu = [
+    "onnxruntime-gpu>=1.15.0",
+    "accelerate>=0.20.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/catalyst-ai/voice-studio"
+Repository = "https://github.com/catalyst-ai/voice-studio"
+Issues = "https://github.com/catalyst-ai/voice-studio/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["catalyst_ai_voice_studio*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = "--cov=catalyst_ai_voice_studio --cov-report=term-missing"
